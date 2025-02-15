@@ -5,16 +5,16 @@ namespace Mission06_Colton.Models
     public class Movie
     {
         [Key]
-        public int MovieId { get; set; }
+        public int MovieId { get; set; } // Id to keep track of each record
 
         [Required]
-        public string Title { get; set; }
+        public string Title { get; set; } // Required
 
         [Required]
-        public string Category { get; set; }
+        public string Category { get; set; } // Required
 
         [Required]
-        public string Director { get; set; }
+        public string Director { get; set; } // Required
 
         [Required]
         public string Rating { get; set; } // Dropdown (G, PG, PG-13, R)

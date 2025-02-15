@@ -12,23 +12,23 @@ namespace Mission06_Colton.Controllers
         {
             _context = temp;
         }
-        public IActionResult Index()
+        public IActionResult Index() // Returns the home view
         {
             return View();
         }
 
-        public IActionResult Joel()
+        public IActionResult Joel() // Returns the Joel Page
         {
             return View();
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public IActionResult Create() // Return the form page
         {
             return View("Create");
         }
         [HttpPost]
-        public IActionResult Create(Movie response)
+        public IActionResult Create(Movie response) //Adding record to database from the form
         {
 
             _context.Movies.Add(response);
