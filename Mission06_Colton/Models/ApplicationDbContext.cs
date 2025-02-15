@@ -1,9 +1,6 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Sqlite;
-namespace Mission06_Colton.Models;
-
-
+namespace Mission06_Colton.Models
 {
 public class ApplicationDbContext : DbContext
 {

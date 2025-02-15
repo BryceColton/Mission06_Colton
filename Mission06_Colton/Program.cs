@@ -1,7 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using Mission06_Colton.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseSqlite(builder.Configuration["ConnectionStrings:MovieConnection"]);
+});
+
 
 var app = builder.Build();
 

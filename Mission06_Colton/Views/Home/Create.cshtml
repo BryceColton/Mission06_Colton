@@ -1,5 +1,16 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model Movie
+
+<div class="form-group">
+    <label asp-for="Rating"></label>
+    <select asp-for="Rating" class="form-control">
+        <option>G</option>
+        <option>PG</option>
+        <option>PG-13</option>
+        <option>R</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <label asp-for="Edited"></label>
+    <input type="checkbox" asp-for="Edited" />
+</div>
