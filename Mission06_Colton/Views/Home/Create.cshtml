@@ -1,16 +1,47 @@
 ﻿@model Movie
 
-<div class="form-group">
-    <label asp-for="Rating"></label>
-    <select asp-for="Rating" class="form-control">
-        <option>G</option>
-        <option>PG</option>
-        <option>PG-13</option>
-        <option>R</option>
-    </select>
-</div>
+<form method="post">
+    <label asp-for="Title">Title:</label>
+    <input asp-for="Title" class="form-control" required />
+    <br />
 
-<div class="form-group">
-    <label asp-for="Edited"></label>
-    <input type="checkbox" asp-for="Edited" />
-</div>
+    <label asp-for="Category">Category:</label>
+    <input asp-for="Category" class="form-control" required />
+    <br />
+
+    <label asp-for="Director">Director:</label>
+    <input asp-for="Director" class="form-control" required />
+    <br />
+
+    <label asp-for="Year">Year:</label>
+    <input asp-for="Year" class="form-control" type="number" min="1800" max="2100" required />
+    <br />
+
+    <label asp-for="Rating">Rating:</label>
+    <select asp-for="Rating" class="form-select">
+        <option value="" disabled selected>Choose an option</option>
+        <option value="G">G</option>
+        <option value="PG">PG</option>
+        <option value="PG-13">PG-13</option>
+        <option value="R">R</option>
+    </select>
+    <br />
+
+    <label asp-for="Edited">Was this movie edited?</label>
+    <select asp-for="Edited" class="form-select">
+        <option value="" disabled selected>Choose an option</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+    </select>
+    <br />
+
+    <label asp-for="LentTo">Lent To (if applicable):</label>
+    <input asp-for="LentTo" class="form-control" />
+    <br />
+
+    <label asp-for="Notes">Notes (Max 25 chars):</label>
+    <input asp-for="Notes" class="form-control" maxlength="25" />
+    <br />
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

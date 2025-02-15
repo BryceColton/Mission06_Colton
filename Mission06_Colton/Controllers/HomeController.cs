@@ -6,7 +6,12 @@ namespace Mission06_Colton.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext _context;
 
+        public HomeController(ApplicationDbContext temp)
+        {
+            _context = temp;
+        }
         public IActionResult Index()
         {
             return View();
@@ -17,10 +22,21 @@ namespace Mission06_Colton.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            return View("Create");
         }
+        [HttpPost]
+        public IActionResult Create(Movie response)
+        {
+
+            _context.Movies.Add(response);
+            _context.SaveChanges();
+
+            return View("Confirmation");
+        }
+
 
 
     }
