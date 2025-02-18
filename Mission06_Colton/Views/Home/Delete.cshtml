@@ -1,0 +1,54 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Movie
+
+<h2>Confirm Deletion</h2>
+<div class="table-responsive">
+
+<table class="table table-bordered table-hover text-center align-middle">
+    <thead class="table-dark text-uppercase">
+        <tr>
+            <td>Movie Title</td>
+            <td>Year</td>
+            <td>Director</td>
+            <td>Category</td>
+            <td>Rating</td>
+            <td>Edited</td>
+            <td>LentTo</td>
+            <td>CopiedToPlex</td>
+            <td>Notes</td>
+
+        </tr>
+
+    </thead>
+        <tbody>
+        <tr class="fw-bold fs-5">
+
+                <td>@Model.Title</td>
+                <td>@Model.Year</td>
+                <td>@Model.Director</td>
+                <td>@Model.Category</td>
+                <td>@Model.Rating</td>
+                <td>(@Model.Edited == true ? "Yes" : "No")</td> <!-- Converts true/false to Yes/No -->
+                <td>@Model.LentTo</td>
+                <td>(@Model.CopiedToPlex == true ? "Yes" : "No")</td> <!-- Converts true/false to Yes/No -->
+                <td>@Model.Notes</td>
+            </tr>
+
+
+        </tbody>
+
+</table>
+</div>
+
+
+<form method="post">
+
+    <input type="hidden" asp-for="MovieId" />
+
+    <button class="btn btn-danger" type="submit">Delete</button>
+    <a class="btn btn-info" asp-controller="Home" asp-action="MovieList">Cancel</a>
+</form>

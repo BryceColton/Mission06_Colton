@@ -1,32 +1,40 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mission06_Colton.Models
 {
     public class Movie
     {
         [Key]
-        public int MovieId { get; set; } // Id to keep track of each record
+        public int MovieId { get; set; } // Primary key
 
         [Required]
-        public string Title { get; set; } // Required
+        [ForeignKey("Category")]
+        public int CategoryId { get; set; } // Foreign key (if applicable)
+        public Category? Category { get; set; }
 
         [Required]
-        public string Category { get; set; } // Required
+        [StringLength(100)] // Limit title length
+        public string Title { get; set; }
 
         [Required]
-        public string Director { get; set; } // Required
+        [Range(1888, 2100, ErrorMessage = "Year must be between 1888 and the current year.")]
+        public int Year { get; set; } // Restrict to valid years
 
         [Required]
-        public string Rating { get; set; } // Dropdown (G, PG, PG-13, R)
+        [StringLength(50)] // Limit name length
+        public string Director { get; set; }
 
         [Required]
-        public int Year { get; set; } // Enforce realistic movie years
+        public string Rating { get; set; } // String
 
-        public bool Edited { get; set; } // Stored as 1 (true) and 0 (false) in DB
+        public bool Edited { get; set; } // Changed to bool for clarity
 
         public string? LentTo { get; set; } // Optional field
 
-        [StringLength(25, ErrorMessage = "Must be 25 characters or less.")]
-        public string? Notes { get; set; } // Optional with max 25 chars
+        public bool CopiedToPlex { get; set; } // Changed to bool for clarity
+
+        [StringLength(100, ErrorMessage = "Notes cannot exceed 100 characters.")]
+        public string? Notes { get; set; } // Optional, limited to 25 chars
     }
 }
